@@ -6,6 +6,7 @@ import ArraySort from 'array-sort'
 import CountryDetails from '.././../components/countryDetails/countryDetails'
 import Header from '.././../components/HeadingNames/HeadingNames'
 import './countries.css'
+import Spinner from '../../components/Spinner/Spinner'
 
 
 
@@ -109,7 +110,10 @@ export default class CountriesDetails extends Component {
 
         return (
 
+            
+
             <div className="countries-stats">
+                
                 <h2 className="countries-stats-heading">Countries Stats</h2>
                 <div className="Filtering">
 
@@ -121,9 +125,13 @@ export default class CountriesDetails extends Component {
                     </select>
 
                 </div>   
+                
 
                 <Header/>
 
+                
+
+                {this.state.countryDetails.length < 1 ? <Spinner/> : null}
                {countriesList}
 
             </div>
